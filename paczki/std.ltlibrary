@@ -1,1 +1,35 @@
+# ==========================================
+# BIBLIOTEKA STANDARDOWA LTSCRIPT (std)
+# Autor: dudus1197
+# ==========================================
 
+# --- KOLORY ---
+DEFINE_COLOR RED    0xFF0000
+DEFINE_COLOR GREEN  0x00FF00
+DEFINE_COLOR BLUE   0x0000FF
+DEFINE_COLOR WHITE  0xFFFFFF
+DEFINE_COLOR BLACK  0x000000
+DEFINE_COLOR GREY   0x888888
+DEFINE_COLOR AMIGA  0x0055AA
+
+# --- KOMPONENTY (PACZKI) ---
+
+# Zwykłe okno z paskiem tytułowym
+PACKAGE WINDOW(title, x, y, w, h)
+    RECT x y w h GREY               # Tło okna
+    RECT x y w 22 AMIGA             # Pasek tytułowy
+    TEXT title x+5 y+4 WHITE        # Tytuł
+END_PACKAGE
+
+# Prosty przycisk
+PACKAGE BUTTON(label, x, y, w, h)
+    RECT x y w h BLACK              # Obramowanie
+    RECT x+1 y+1 w-2 h-2 GREY       # Wnętrze
+    TEXT label x+10 y+5 BLACK       # Napis na przycisku
+END_PACKAGE
+
+# Pasek stanu na dole ekranu
+PACKAGE STATUS_BAR(text)
+    RECT 0 580 800 20 BLACK
+    TEXT text 10 585 GREEN
+END_PACKAGE
